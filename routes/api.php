@@ -30,13 +30,13 @@ Route::group(['middleware' => 'auth:api'], function(){
 
             Route::get('/lojas', ['uses' => 'ShopController@index', 'permission' => 'shop.index']);
 
-            Route::get('/loja/{id}', ['uses' => 'ShopController@find', 'permission' => 'shop.index']);
+            Route::get('/loja/{id}', ['uses' => 'ShopController@show', 'permission' => 'shop.index']);
 
             Route::post('/loja', ['uses' => 'ShopController@create', 'permission' => 'shop.create']);
 
             Route::put('/loja/{id}', ['uses' => 'ShopController@update', 'permission' => 'shop.update']);
 
-            Route::delete('/lojas/{id}',['uses' => 'ShopController@destroy', 'permission' => 'shop.index']);
+            Route::delete('/loja/{id}',['uses' => 'ShopController@destroy', 'permission' => 'shop.index']);
         });
     });
 });
