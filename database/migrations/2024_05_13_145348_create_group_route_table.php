@@ -19,7 +19,6 @@ class CreateGroupRouteTable extends Migration
             $table-> unsignedBigInteger('route_id');
             $table->foreign('group_id')->references('id')->on('groups');
             $table->foreign('route_id')->references('id')->on('routes');
-
         });
     }
 

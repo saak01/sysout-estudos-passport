@@ -13,15 +13,17 @@ Route::get('/files/{id}', 'FileController@show');
 //Passport
 Route::post('login', '\Laravel\Passport\Http\Controllers\AccessTokenController@issueToken');
 
-Route::get('/user', function(){
+Route::get('/user', function () {
     return request()->user();
 });
 
-Route::group(['middleware' => 'auth:api'], function(){
+Route::group(['middleware' => 'auth:api'], function () {
 
     Route::group(['middleware' => 'check.route.permission'], function () {
 
-        Route::get('/user', function(){
+        Route::get('/user', function () {
+            $route = App\Models\Route::find(2);
+            dd($route->groups);
             return request()->user();
         });
 
@@ -36,7 +38,7 @@ Route::group(['middleware' => 'auth:api'], function(){
 
             Route::put('/loja/{id}', ['uses' => 'ShopController@update', 'permission' => 'shop.update']);
 
-            Route::delete('/loja/{id}',['uses' => 'ShopController@destroy', 'permission' => 'shop.index']);
+            Route::delete('/loja/{id}', ['uses' => 'ShopController@destroy', 'permission' => 'shop.index']);
         });
     });
 });

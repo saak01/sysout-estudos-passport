@@ -112,6 +112,10 @@ class ShopController extends Controller
         if($validator -> fails()){
             return response($validator->errors(), Response::HTTP_BAD_REQUEST);
         }
+        else{
+            $shop = $request->id ? Shop::find($request->id) : new Shop();
+            return $this->save($shop,$request);
+        }
     }
 
 

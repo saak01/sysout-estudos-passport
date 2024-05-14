@@ -5,6 +5,13 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
+/**
+ * User Seeder
+ *
+ * @author João Victor Costa <joaovictorcosta@sysout.com.br>
+ * @since 14/05/2024
+ * @version 1.0.0
+ */
 class UserSeeder extends Seeder
 {
     /**
